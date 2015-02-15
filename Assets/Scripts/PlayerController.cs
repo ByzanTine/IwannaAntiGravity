@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour {
 		GameObject[] moveables = GameObject.FindGameObjectsWithTag("Movable");
 		foreach(GameObject moveable in moveables) {
 			moveable.rigidbody2D.gravityScale = 1.0f;
+
 		}
 	}
 	

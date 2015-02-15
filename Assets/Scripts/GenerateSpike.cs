@@ -10,7 +10,7 @@ public class GenerateSpike : MonoBehaviour {
 		timer = Time.time;
 	}
  	void OnTriggerEnter2D (Collider2D coll) {
-		if (coll.tag == "Player" && Time.time - timer > generateCoolDown) {
+		if (coll.GetComponent<DeathControl>() && Time.time - timer > generateCoolDown) {
 			timer = Time.time;
 			Instantiate(spikePrefab, transform.position, Quaternion.identity);
 		}

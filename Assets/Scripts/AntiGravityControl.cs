@@ -34,8 +34,9 @@ public class AntiGravityControl : MonoBehaviour {
 	void OnTriggerExit2D(Collider2D coll) {
 		if (coll.tag == "Movable") {
 			// Debug.Log("Something in here");
-			if (gravityState == GravityState.ExitReset)
+			if (gravityState == GravityState.ExitReset) {
 				coll.gameObject.rigidbody2D.gravityScale = 1.0f;
+			}
 			else if (gravityState == GravityState.ExitHold)
 				coll.gameObject.rigidbody2D.gravityScale = -1.0f;
 		}
