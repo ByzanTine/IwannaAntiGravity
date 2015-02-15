@@ -20,7 +20,11 @@ public class PlayerController : MonoBehaviour {
     Camera camera;
 	void Start () {
 		anim = GetComponent<Animator> ();
-
+		// reset all Moveable Object gravity Scale
+		GameObject[] moveables = GameObject.FindGameObjectsWithTag("Movable");
+		foreach(GameObject moveable in moveables) {
+			moveable.rigidbody2D.gravityScale = 1.0f;
+		}
 	}
 	
 	// FixedUpdate is called once per frame
@@ -44,6 +48,8 @@ public class PlayerController : MonoBehaviour {
 	}
 	void Update()
 	{
+
+
 		if(Input.GetKeyDown(KeyCode.Z))
 		{
 			if ((grounded || !doubleJump)){

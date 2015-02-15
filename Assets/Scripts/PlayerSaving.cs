@@ -5,6 +5,9 @@ public class PlayerSaving : MonoBehaviour {
 	public Vector3 savePosition;
 	public bool isSavePositionSaved = false;
 	public GameObject playerPrefab;
+	void Start () {
+		DontDestroyOnLoad (gameObject);
+	}
 	void Update () {
 		if (Input.GetKeyDown(KeyCode.R)) {
 			// find out wether player already exist

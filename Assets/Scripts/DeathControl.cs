@@ -18,6 +18,22 @@ public class DeathControl : MonoBehaviour {
 
 	public void OnDeath() {
 		GameObject.Instantiate(Resources.Load("dead_body"), transform.position, Quaternion.identity);
-		Destroy (gameObject);
+		// before delete the object, separate the gravity control
+		Transform gravityInstance =  gameObject.transform.FindChild ("GravitySphere(Clone)");
+		if (!gravityInstance) {
+			Debug.Log("GRAVITY: NO CHILDREN Named GravitySphere");
+			Destroy (gameObject);
+			return;
+		}
+		else {
+			// remove relation
+			Debug.Log("GRAVITY: Detach GravitySphere");
+			gravityInstance.SetParent(transform.parent);
+			gravityInstance.GetComponent<AntiGravityControl>().deallocateSphere();
+			Destroy (gameObject);
+		}
+
 	}
+
+
 }
