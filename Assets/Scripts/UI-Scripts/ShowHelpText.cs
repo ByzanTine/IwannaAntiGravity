@@ -9,7 +9,7 @@ public class ShowHelpText : ShowAndFade {
 		resetColor ();
 	}
 	public void showText() {
-		StartCoroutine (showAndFade (2.0f));
+		StartCoroutine (showAndFade (3.0f));
 	}
 
 }
